@@ -19,7 +19,7 @@ jobs:
         lfs: 'true'
     - 
       name: Build the Docker image
-      run: docker build -t flaskapp -f Dockerfile .
+      run: docker build -t flaskapp:latest -f Dockerfile .
     -
       name: Generate Deployment Package
       run: zip -r deploy.zip *
