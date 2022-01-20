@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/hello', methods=['GET'])
 def hello():
-    return jsonify({'Hello':'world'})
+    return jsonify({'Hello':'Everyone'})
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
