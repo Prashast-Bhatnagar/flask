@@ -9,6 +9,23 @@ db.session.commit()
 
 key='super-secret'
 
+#Api for Admin register
+@app.route('/api/adminregister', methods = ['POST'])
+def adminRegisterSuccess():
+    try:
+        data=request.get_json()
+        password=data['password']
+        admin_check= Admin_Login.query.filter_by(email=data['email']).first()
+        if not admin_check:
+            entry = Admin_Login(email=data['email'],password=password)
+            db.session.add(entry)
+            db.session.commit()
+            return jsonify({'success':True,'message':'Admin Registration Successful'}), 201
+        else:
+            return jsonify({'success':False,'message':'Admin Already Existed for this email'}), 404 
+    except:
+        return jsonify({"success":False, "message":"not recieved JSON data"}), 400
+
 # Api for Patient Register
 @app.route('/api/patientregister', methods=['POST'])
 def patientRegisterSuccess():
