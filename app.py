@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 def hello():
     return jsonify({'Hello':'world'})
 
-class Item(db.Model):
+class test(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(80), nullable=False)
   content = db.Column(db.String(120), nullable=False)
@@ -25,7 +25,7 @@ db.create_all()
 @app.route('/items', methods=['GET'])
 def get_items():
   items = []
-  for item in db.session.query(Item).all():
+  for item in db.session.query(test).all():
     items.append(item)
   return jsonify(items)
 
@@ -33,7 +33,7 @@ def get_items():
 @app.route('/items', methods=['POST'])
 def create_item():
   body = request.get_json()
-  db.session.add(Item(title=body['title'],content= body['content']))
+  db.session.add(test(title=body['title'],content= body['content']))
   db.session.commit()
   return "item created"
 
