@@ -733,10 +733,12 @@ def getMedicationOrderByIdForDoctor(medId):
         docRes = doctor_details.query.filter_by(email=email,password=password).first()
         if docRes:
             result = Medication_Order.query.filter_by(medId = medId).first()
-            pres_id = Prescription.query.filter_by(patientId=result.patientId,doctorId=result.doctorId,dateWritten=result.dateWritten).first().id
-            docverify =Prescription.query.filter_by(id = pres_id,doctorId=docRes.id).first()
-            if docverify:
-                if result:
+            
+            if result:
+                pres_id = Prescription.query.filter_by(patientId=result.patientId,doctorId=result.doctorId,dateWritten=result.dateWritten).first().id
+                docverify =Prescription.query.filter_by(id = pres_id,doctorId=docRes.id).first()
+
+                if docverify:
                     output = {}
                     output['medicationItem'] = result.medicationItem
                     output['route'] =  result.route
@@ -775,9 +777,9 @@ def getMedicationOrderByIdForDoctor(medId):
                     output['description']=result.description
                     return jsonify(output),200
                 else:
-                    return jsonify({'success':False,'message':'Invalid Med Id'}),404
+                    return jsonify({'success':False,'message':'Not Authorised'}),401
             else:
-                return jsonify({'success':False,'message':'Not Authorised'}),401
+                return jsonify({'success':False,'message':'Invalid Med Id'}),404
         else:
             return jsonify({'success':False,'message':'Not Authorised, Not a Doctor'}),401
 
@@ -799,11 +801,11 @@ def getMedicationOrderByIdForPatient(medId):
         patRes = Patient_details.query.filter_by(email=email,password=password).first()
         if patRes:
             result = Medication_Order.query.filter_by(medId = medId).first()
-            pres_id = Prescription.query.filter_by(patientId=result.patientId,doctorId=result.doctorId,dateWritten=result.dateWritten).first().id
-            patverify =Prescription.query.filter_by(id = pres_id,patientId=patRes.id).first()
-            if patverify:
-
-                if result:
+            
+            if result:
+                pres_id = Prescription.query.filter_by(patientId=result.patientId,doctorId=result.doctorId,dateWritten=result.dateWritten).first().id
+                patverify =Prescription.query.filter_by(id = pres_id,patientId=patRes.id).first()
+                if patverify:
                     output = {}
                     output['medicationItem'] = result.medicationItem
                     output['route'] =  result.route
@@ -842,9 +844,9 @@ def getMedicationOrderByIdForPatient(medId):
                     output['description']=result.description
                     return jsonify(output),200
                 else:
-                    return jsonify({'success':False,'message':'Invalid Med Id'}),404
+                    return jsonify({'success':False,'message':'Not Authorised'}),401
             else:
-                return jsonify({'success':False,'message':'Not Authorised'}),401
+                return jsonify({'success':False,'message':'Invalid Med Id'}),404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}),401
 
