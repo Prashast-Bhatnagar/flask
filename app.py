@@ -151,7 +151,7 @@ def getallmedicationstatements():
             return jsonify({"success":True, "medication_summary":output}),200
 
         else:
-            return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 40
+            return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401
     except Exception as e:
         print(e)
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
@@ -193,7 +193,7 @@ def getallmedicationstatementsfordoctor(patient_id):
                 return jsonify({"success":True, "medication_summary":output}),200
 
             else:
-                return jsonify({'success':False, 'message': 'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message': 'Invalid Patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a doctor'}), 401
     except Exception as e:
@@ -297,7 +297,7 @@ def getmedicationstatement(Order_Id):
             else:
                 return jsonify({'success':False,'message':'not authorised'}), 401
         else:
-            return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+            return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401
     except:
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
@@ -499,7 +499,7 @@ def addmedicationstatement():
                 return jsonify({'success':True,'message':'item added successfully'}),201
 
             else:
-                return jsonify({'success':False, 'messahe':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message':'Invalid Patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not Admin'}), 401
     except:
@@ -577,7 +577,7 @@ def addPrescription():
                 db.session.commit()
                 return jsonify({'success':True,'message':'Prescription Created Successfully'}),201
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}),404
+                return jsonify({'success':False,'message':'Invalid Patient'}),404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a doctor'}),401
 
@@ -611,7 +611,7 @@ def getAllPrescriptionsForPatient():
             return jsonify({'success':True,'allPrescriptions':result}),200        
             
         else:
-            return jsonify({'success':False,'message':'Not Authorised, not a patient'}),404
+            return jsonify({'success':False,'message':'Not Authorised, not a patient'}),401
 
     except Exception as e:
         print(e)
@@ -715,7 +715,7 @@ def getPrescriptionByIdForPat(presId):
             else:
                 return jsonify({'success':False,'message':'Not Authorised'}),401
         else:
-            return jsonify({'success':False,'message':'Not Authorised, not a patient'}),404
+            return jsonify({'success':False,'message':'Not Authorised, not a patient'}),401
 
     except Exception as e:
         print(e)
@@ -851,8 +851,7 @@ def getMedicationOrderByIdForPatient(medId):
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}),401
 
     except Exception as e:
-        print(e)
-        return jsonify({'success':False,'message':'not recieved JSON/Token data'}),400 
+        return jsonify({'success':False,'message':'not recieved JSON/Token data', "error":str(e)}),400 
 
 
 #3. Pregnancy
