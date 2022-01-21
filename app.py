@@ -4,12 +4,15 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/hello', methods=['GET'])
+def hello():
+    return jsonify({'Hello':'World'})
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun_zees5@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun_zees5@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 
 db = SQLAlchemy(app)
@@ -26,9 +29,7 @@ class Item(db.Model):
 
 db.create_all()
 
-@app.route('/hello', methods=['GET'])
-def hello():
-    return jsonify({'Hello':'World'})
+
 
 @app.route('/items/<id>', methods=['GET'])
 def get_item(id):
