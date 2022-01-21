@@ -22,19 +22,12 @@ class Item(db.Model):
 
 db.create_all()
 
-@app.route('/items/<id>', methods=['GET'])
-def get_item(id):
-  item = Item.query.get(id)
-  del item._dict_['_sa_instance_state']
-  return jsonify(item._dict_)
-
 
 @app.route('/items', methods=['GET'])
 def get_items():
   items = []
   for item in db.session.query(Item).all():
-    del item._dict_['_sa_instance_state']
-    items.append(item._dict_)
+    items.append(item)
   return jsonify(items)
 
 
