@@ -733,9 +733,7 @@ def getMedicationOrderByIdForDoctor(medId):
         docRes = doctor_details.query.filter_by(email=email,password=password).first()
         if docRes:
             result = Medication_Order.query.filter_by(medId = medId).first()
-            pres_id = result.prescriptionId
-            print(pres_id)
-            print(docRes.id)
+            pres_id = Prescription.query.filter_by(patientId=result.patientId,doctorId=result.doctorId,dateWritten=result.dateWritten).first().id
             docverify =Prescription.query.filter_by(id = pres_id,doctorId=docRes.id).first()
             if docverify:
                 if result:
@@ -801,7 +799,7 @@ def getMedicationOrderByIdForPatient(medId):
         patRes = Patient_details.query.filter_by(email=email,password=password).first()
         if patRes:
             result = Medication_Order.query.filter_by(medId = medId).first()
-            pres_id = result.prescriptionId
+            pres_id = Prescription.query.filter_by(patientId=result.patientId,doctorId=result.doctorId,dateWritten=result.dateWritten).first().id
             patverify =Prescription.query.filter_by(id = pres_id,patientId=patRes.id).first()
             if patverify:
 
