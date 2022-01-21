@@ -5,7 +5,7 @@ from flask import request
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun_zees5@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 
