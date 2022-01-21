@@ -1,18 +1,16 @@
-from flask import Flask, request, jsonify
+from flask import Flask
+from flask.json import jsonify
 from flask_sqlalchemy import SQLAlchemy
-import os
+from flask import request
 
 app = Flask(__name__)
 
 @app.route('/hello', methods=['GET'])
 def hello():
-    return jsonify({'Hello':'World'})
+    return jsonify({'Hello':'world'})
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun_zees5@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun_zees5@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 
 db = SQLAlchemy(app)
@@ -28,8 +26,6 @@ class Item(db.Model):
 
 
 db.create_all()
-
-
 
 @app.route('/items/<id>', methods=['GET'])
 def get_item(id):
@@ -53,3 +49,6 @@ def create_item():
   db.session.add(Item(body['title'], body['content']))
   db.session.commit()
   return "item created"
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0")
