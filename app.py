@@ -5,15 +5,15 @@ from flask import request
 
 app = Flask(__name__)
 
-@app.route('/hello', methods=['GET'])
-def hello():
-    return jsonify({'Hello':'world'})
-
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun_zees5@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Bun@my-postgres-db.ca2fymsujo5f.us-east-2.rds.amazonaws.com:5432/flaskapp"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 
 db = SQLAlchemy(app)
+
+@app.route('/hello', methods=['GET'])
+def hello():
+    return jsonify({'Hello':'world'})
 
 class Item(db.Model):
   id = db.Column(db.Integer, primary_key=True)
