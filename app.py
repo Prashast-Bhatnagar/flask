@@ -41,7 +41,7 @@ def get_items():
 @app.route('/items', methods=['POST'])
 def create_item():
   body = request.get_json()
-  db.session.add(Item(body['title'], body['content']))
+  db.session.add(Item(title=body['title'],content= body['content']))
   db.session.commit()
   return "item created"
 
