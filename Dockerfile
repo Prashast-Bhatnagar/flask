@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # ADD ./model ./model
 # ADD ./data ./data
 COPY ./app.py ./
+COPY ./models.py ./
 # ADD ./templates ./templates
 
 EXPOSE 5000
