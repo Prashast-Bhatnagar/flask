@@ -618,7 +618,7 @@ def getAllPrescriptionsForPatient():
                 obj['prescriptionId'] = prescription.id
                 obj['date_written']=prescription.dateWritten
                 result.append(obj)
-            return jsonify({'success':True,'allPrescriptions':result}),200        
+            return jsonify({'allPrescriptions':result}),200        
             
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}),401
@@ -652,7 +652,7 @@ def getAllPrescriptionsForDoctor():
                 obj['prescriptionId'] = prescription.id
                 obj['date_written']=prescription.dateWritten
                 result.append(obj)
-            return jsonify({'success':True,'allPrescriptions':result}),200
+            return jsonify({'allPrescriptions':result}),200
             
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a doctor'}),401
@@ -689,7 +689,11 @@ def getPrescriptionByIdForDoct(presId):
                     detail['patient_id']=item.patientId
 
                     output.append(detail)
-                return jsonify({'success':True,'Prescription':output}),200
+                if output:
+                    return jsonify({'success':True,'Prescription':output}),200
+
+                else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
             else:
                 return jsonify({'success':False,'message':'Not Authorised'}),401
         else:
@@ -723,7 +727,12 @@ def getPrescriptionByIdForPat(presId):
                     detail['date_written']=item.dateWritten
                     detail['patient_id']=item.patientId
                     output.append(detail)
-                return jsonify({'success':True,'Prescription':output}),200
+
+                if output:
+                    return jsonify({'success':True,'Prescription':output}),200
+
+                else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
             else:
                 return jsonify({'success':False,'message':'Not Authorised'}),401
         else:
@@ -900,7 +909,7 @@ def addPregnancyDetails():
                 return jsonify({'success':True,'message':'pregnancy details Added successfully'}),201
 
             else:
-                return jsonify({'success':True,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':True,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not admin'}), 401
     except Exception as e:
@@ -937,7 +946,7 @@ def getPregnancyRecordForPatient():
                 pat['exclusion_of_pregnancy_statement']=value.exclusion_of_pregnancy_statement
                 output.append(pat)
                     
-            return jsonify({'success':True,"history":output}),200 
+            return jsonify({"history":output}),200 
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404     
     except:
@@ -975,10 +984,10 @@ def getPregnancyRecordForDoctor(patient_id):
                     pat['protocol_last_updated']=value.protocol_last_updated
                     pat['exclusion_of_pregnancy_statement']=value.exclusion_of_pregnancy_statement
                     output.append(pat)
-                return jsonify({'success':True,"history":output}),200
+                return jsonify({"history":output}),200
 
             else:
-                return jsonify({'success':False, 'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'not authorised, not a doctor'}), 401       
     except Exception as e:
@@ -1027,7 +1036,7 @@ def historyOfProcedure():
                 db.session.commit()
                 return jsonify({'success':True,'message':'history of procedure added successfully'}),201
             else:
-                return jsonify({'success':False, 'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not admin'}), 401
     except Exception as e:
@@ -1071,10 +1080,10 @@ def getHistoryOfProcedureForDoctor(patient_id):
 
                     pat['procedures']=output
                         
-                return jsonify({'success':True,"history_of_procedure":pat}),200
+                return jsonify({"history_of_procedure":pat}),200
 
             else:
-                return jsonify({'success':False, 'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a doctor'}), 401
 
@@ -1115,7 +1124,7 @@ def getHistoryOfProcedureForPatient():
 
                 pat['procedures']=output
 
-            return jsonify({'success':True,"history_of_procedure":pat}),200
+            return jsonify({"history_of_procedure":pat}),200
 
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
@@ -1167,7 +1176,7 @@ def addImmunizations():
                 return jsonify({'success':True,'message':'Immunizations added successfully'}),201
 
             else:
-                return jsonify({'success':False, 'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not admin'}), 401
     except Exception as e:
@@ -1212,13 +1221,16 @@ def getImmunizationsForPatient():
                     output.append(obj)
 
                 pat['immunizations']=output  
-            return jsonify({'success':True,"immunization":pat}),200
+                return jsonify({"immunization":pat}), 200
             
+            else:
+                return jsonify({'success':False,'message':'no record found'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
     except Exception as e:
         print(e)
-        return jsonify({'success':False,'message':'not recieved JSON data'}),400
+        return jsonify({'success':False,'message':'not recieved JSON data'}), 400
+
 
 # GET API FOR Immunizations for Doctor
 @cross_origin()
@@ -1263,10 +1275,13 @@ def getImmunizationsForDoctor(patient_id):
 
                     pat['immunizations']=output 
 
-                return jsonify({'success':True,"immunization":pat}),200
+                    return jsonify({"immunization":pat}),200
+                
+                else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a Doctor'}), 401
     except Exception as e:
@@ -1314,7 +1329,7 @@ def addMedicalDevice():
                 return jsonify({'success':True,'message':'Medical Devices Added successfully'}),201
             
             else:
-                return jsonify({'success':False, 'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not Admin'}), 401
     except Exception as e:
@@ -1358,7 +1373,7 @@ def getMedicalDeviceForPatient():
                 pat['comment']=value.comment
                 output.append(pat)  
     
-            return jsonify({'success':True,"medical_devices":output}),200
+            return jsonify({"medical_devices":output}),200
 
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404       
@@ -1405,9 +1420,10 @@ def getMedicalDeviceForDoctor(patient_id):
                     pat['other_identifier']=value.other_identifier
                     pat['comment']=value.comment
                     output.append(pat)
-                return jsonify({'success':True,"medical_devices":output}),200
+                return jsonify({"medical_devices":output}), 200
+
             else:
-                return jsonify({'success':False, 'message': 'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False, 'message': 'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'not authorised, not a doctor'}), 401       
     except:
@@ -1444,7 +1460,7 @@ def add_allergies_and_intolerances():
                 db.session.commit()
                 return jsonify({'success':True, 'message':'data added'}), 201
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not an admin'}), 401
     except Exception as e:
@@ -1488,7 +1504,7 @@ def getallAllergiesForDoctor(patient_id):
                 return jsonify({'all_allergies_and_intolerances':output}), 200
 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not a doctor'}), 401
 
@@ -1530,8 +1546,10 @@ def getallAllergiesForPatient():
 
                 output['allergy_list'] = allergy_list
             
-            return jsonify({'success':True,'all_allergies_and_intolerances':output}), 200
+                return jsonify({'success':True,'all_allergies_and_intolerances':output}), 200
             
+            else:
+                return jsonify({'success':False,'message':'no record for this id'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401
     except Exception as e:
@@ -1553,10 +1571,10 @@ def getAllergyByIdForDoctor(allergy_id):
         doctor = doctor_details.query.filter_by(email=email,password=password).first()
         
         if doctor:
-            output = {}
             result = Allergy.query.filter_by(id = allergy_id).first()
 
             if result:
+                output = {}
                 output['substance'] = result.substance
                 output['verification_status'] = result.verification_status
                 output['critically'] = result.critically
@@ -1566,9 +1584,10 @@ def getAllergyByIdForDoctor(allergy_id):
                 output['onset'] = result.onset
                 output['severity'] = result.severity
                 output['protocol_last_updated'] = result.protocol_last_updated
+                return jsonify({'success':True,'allergy':output}), 200
 
-            return jsonify({'success':True,'allergy':output}), 200
-
+            else:
+                return jsonify({'success':False, "message":"Allergy does not exist"}), 404
         else:
             return jsonify({'success':False, "message":"Not authorised, not a doctor"}), 401
     except Exception as e:
@@ -1652,7 +1671,7 @@ def add_vital_signs():
                 db.session.commit()
                 return jsonify({'success':True, 'message':'data added'}), 201
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid Patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not an admin'}), 401
     except Exception as e:
@@ -1676,10 +1695,10 @@ def get_vital_signs_for_doctor(patient_id):
             patient = Patient_details.query.filter_by(id = patient_id).first()
 
             if patient:
-                obj = {}
                 result_vitals = vital_signs.query.filter_by(patient_id = patient.id).first()
 
                 if result_vitals:
+                    obj = {}
                     obj['body_weight']=result_vitals.body_weight 
                     obj['body_weight_unit']=result_vitals.body_weight_unit 
                     obj['height']=result_vitals.height
@@ -1695,10 +1714,12 @@ def get_vital_signs_for_doctor(patient_id):
                     obj['body_mass_index_unit']=result_vitals.body_mass_index_unit 
                     obj['blood_pressure_systolic']=result_vitals.blood_pressure_systolic 
                     obj['blood_pressure_diastolic']=result_vitals.blood_pressure_diastolic
-                return jsonify({'success':True,'data':obj}), 200
+                    return jsonify({'success':True,'data':obj}), 200
                 
+                else:
+                    return jsonify({'success':False,'message':'no vital signs recorded for patient id'}), 404   
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid Patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not a doctor'}), 401
     except Exception as e:
@@ -1719,10 +1740,11 @@ def get_vital_signs_for_patient():
         patient = Patient_details.query.filter_by(email=email,password=password).first()
 
         if patient:
-            obj = {}
+            
             result_vitals = vital_signs.query.filter_by(patient_id = patient.id).first()
 
             if result_vitals:
+                obj = {}
                 obj['body_weight']=result_vitals.body_weight 
                 obj['body_weight_unit']=result_vitals.body_weight_unit 
                 obj['height']=result_vitals.height
@@ -1738,8 +1760,10 @@ def get_vital_signs_for_patient():
                 obj['body_mass_index_unit']=result_vitals.body_mass_index_unit 
                 obj['blood_pressure_systolic']=result_vitals.blood_pressure_systolic 
                 obj['blood_pressure_diastolic']=result_vitals.blood_pressure_diastolic
-            return jsonify({'success':True,'data':obj}), 200
-            
+                return jsonify({'success':True,'data':obj}), 200
+
+            else:
+                return jsonify({'success':False,'message':'no vital signs recorded for patient id'}), 404   
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401
     except Exception as e:
@@ -1806,7 +1830,7 @@ def add_dignostics_results():
                 db.session.commit()
                 return jsonify({'success':True, 'message':'data added'}), 201    
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid Patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not an Admin'}), 401
     except Exception as e:
@@ -1844,7 +1868,7 @@ def getDignosisResultsForDoctor(patient_id):
                 return jsonify({'success':True,'dignostic_test_result':output}), 200
 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not a doctor'}), 401
     except Exception as e:
@@ -2017,6 +2041,7 @@ def getDignosticsByIdForPatient(dignostic_id):
         print(e)
         return jsonify({'success':False,'message':'not recieved JSON data/token'}),400 
 
+
 # GET PATIENT
     # for doctor
 @cross_origin()
@@ -2123,8 +2148,11 @@ def getPastHistoryPatient():
                 pat['protocol_last_updated']=value.protocol_last_updated
                 output.append(pat)
                 
-            return jsonify({"success":True,"history":output}),200
-        
+            if output:   
+                    return jsonify({"history":output}), 200
+
+            else:
+                return jsonify({'success':False,'message':'no record found'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401       
     except:
@@ -2164,11 +2192,14 @@ def getPastHistoryDoctor(patient_id):
                     pat['diagnostic_certainity']=value.diagnostic_certainity
                     pat['protocol_last_updated']=value.protocol_last_updated
                     output.append(pat)
-                        
-                return jsonify({"success":True,"history":output}),200
 
+                if output:   
+                    return jsonify({"history":output}), 200
+
+                else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404 
+                return jsonify({'success':False,'message':'Invalid patient'}), 404 
         else:
             return jsonify({'success':False,'message':'Not authorised, not a doctor'}), 401      
     except:
@@ -2212,7 +2243,7 @@ def createPastHistoryOfPatient():
                 return jsonify({'success':True,'message':'history added successfully'}),201
 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not an admin'}), 401
     except:
@@ -2231,10 +2262,10 @@ def getProblemListByPatient():
         res = Patient_details.query.filter_by(email=value['email'], password=value['password']).first()
         
         if res:
-            output = {}
             result1 = db.session.query(Problem_list).filter(Problem_list.patient_id==res.id).first()
             
             if result1:  
+                output ={}
                 output['patient_id']=result1.patient_id
                 output['global_exclusion_of_adverse_reactions']=result1.global_exclusion_of_adverse_reactions
                 output['absence_of_information_statement']=result1.absence_of_information_statement
@@ -2260,14 +2291,16 @@ def getProblemListByPatient():
                     obj['protocol_last_updated']=value.protocol_last_updated
                     pat.append(obj)
                 output['problem list'] = pat    
+                return jsonify({"success":True,"history":output}), 200
 
-            return jsonify({"success":True,"history":output}), 200
-
+            else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401 
     except Exception as e:
         print(e)
         return jsonify({'success':False,'message':'not recieved JSON data'}),400     
+
 
 # Api for Get problem List of Patient by doctor
 @cross_origin()
@@ -2283,10 +2316,11 @@ def getProblemListByDoctor(patient_id):
             patient = Patient_details.query.filter_by(id = patient_id).first()
             
             if patient:
-                output = {}
+                
                 result1 = db.session.query(Problem_list).filter(Problem_list.patient_id==patient_id).first()
                 
-                if result1:     
+                if result1:   
+                    output = {}  
                     output['patient_id']=result1.patient_id
                     output['global_exclusion_of_adverse_reactions']=result1.global_exclusion_of_adverse_reactions
                     output['absence_of_information_statement']=result1.absence_of_information_statement
@@ -2313,11 +2347,12 @@ def getProblemListByDoctor(patient_id):
                         obj['protocol_last_updated']=value.protocol_last_updated
                         pat.append(obj)
                     output['problem list'] = pat  
-
-                return jsonify({"success":True,"history":output}), 200
+                    return jsonify({"success":True,"history":output}), 200
             
+                else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
             else:
-                return jsonify({'success':True, "message":'Not Authorised, not a patient'}), 404
+                return jsonify({'success':True, "message":'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not a doctor'}), 401 
     except:
@@ -2425,10 +2460,11 @@ def getAdvanceDirectivesByPatient():
                     obj['protocol_review_date']=value.protocol_review_date
                     pat.append(obj)
 
-                output['advance_directive']=pat     
+                output['advance_directive']=pat        
+                return jsonify({"history":output}), 200
 
-            return jsonify({"success":True,"history":output}), 200
-            
+            else:
+                return jsonify({'success':False,'message':'no record found'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401
     except:
@@ -2488,10 +2524,13 @@ def getAdvanceDirectivesByDoctor(patient_id):
 
                     output['advance_directive']=pat     
 
-                return jsonify({"success":True,"history":output}), 200
-            
+                if output:    
+                    return jsonify({"history":output}), 200
+
+                else:
+                    return jsonify({'success':False,'message':'no record found'}), 404
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'not authorised, not a doctor'}), 401
     except:
@@ -2572,7 +2611,7 @@ def addadvancedDirectives():
                 db.session.commit()
                 return jsonify({'success':True,'message':'history added successfully'}),201
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not an admin'}), 401
     except:
@@ -2600,10 +2639,10 @@ def getSocialHistoryPatient():
                 pat['alcohol_status']=result2.status
                 pat['typical_consumption_alcohol_unit']=result2.typical_consumption_alcohol_unit
                 
-            return jsonify({"success":True,"history":pat}), 200
+            return jsonify({"history":pat}), 200
 
         else:
-            return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404       
+            return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401       
     except Exception as e:
         print(e)
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
@@ -2631,10 +2670,10 @@ def getSocialHistoryDoctor(patient_id):
                     pat['alcohol_status']=result2.status
                     pat['typical_consumption_alcohol_unit']=result2.typical_consumption_alcohol_unit
                     
-                return jsonify({"success":True,"history":pat}), 200
+                return jsonify({"history":pat}), 200
 
             else:
-                return jsonify({"success":False, "message":"Not Authorised, not a patient"}), 404
+                return jsonify({"success":False, "message":"Invalid patient"}), 404
         else:
             return jsonify({'success':False,'message':'not authorised, not a doctor'}), 401       
     except Exception as e:
@@ -2678,7 +2717,7 @@ def createSocialHistoryOfPatient(): #tobacco_smoking and alcohol_consumption
                 return jsonify({'success':True,'message':'social history added successfully'}),201
 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not an admin'}), 401
     except Exception as e:
@@ -2722,9 +2761,10 @@ def getplanofcare():
                 pat['requester_order_identifier']=value.requester_order_identifier
                 pat['receiver_order_identifier']=value.receiver_order_identifier
                 pat['request_status']=value.request_status
-                
-            return jsonify({"success":True, "planofcare":pat}), 200
-             
+            if pat:    
+                return jsonify({"success":True, "planofcare":pat}), 200
+            else:
+                return jsonify({'success':False, 'message':'No record found'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401     
     except:
@@ -2771,15 +2811,18 @@ def getplanofcarefordoctor(patient_id):
                     pat['requester_order_identifier']=value.requester_order_identifier
                     pat['receiver_order_identifier']=value.receiver_order_identifier
                     pat['request_status']=value.request_status
-                    
-                return jsonify({'success':True,"planofcare":pat}), 200
 
+                if pat:    
+                    return jsonify({'success':True,"planofcare":pat}), 200
+
+                else:
+                    return jsonify({'success':False, 'message':'No record found'}), 404
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, Not a doctor'}), 401       
     except:
-        return jsonify({'success':False,'message':'not recieved JSON data'}),400 
+        return jsonify({'success':False,'message':'not recieved JSON data'}), 400 
 
 @cross_origin()
 @app.route('/api/createplanofcareofpatient',methods=['POST'])
@@ -2896,12 +2939,16 @@ def getfunctionalstatus():
                 pat['protocol_last_updated']=value.protocol_last_updated
                 pat['clinical_impression']=value.clinical_impression
             
-            return jsonify({'success':True,"functionalstatus":pat}),200
+            if pat:
+                return jsonify({'success':True,"functionalstatus":pat}),200
             
+            else:
+                return jsonify({'success':False, 'message':'No record found'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401     
     except:
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
+
 
 @cross_origin()
 @app.route('/api/getfunctionalstatusfordoctor/<int:patient_id>',methods=['GET'])
@@ -2932,15 +2979,18 @@ def getfunctionalstatusfordoctor(patient_id):
                     pat['diagnostic_certainty']=value.diagnostic_certainty
                     pat['protocol_last_updated']=value.protocol_last_updated
                     pat['clinical_impression']=value.clinical_impression
-                
-                return jsonify({'success':True,"functionalstatus":pat}), 200
+                if pat:
+                    return jsonify({'success':True,"functionalstatus":pat}), 200
 
+                else:
+                    return jsonify({'success':False,'message':'No record for patient'}), 404 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, Not a doctor'}), 401       
     except:
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
+
 
 @cross_origin()
 @app.route('/api/createfunctionalstatus',methods=['POST'])
@@ -2993,7 +3043,7 @@ def createfunctionalOfPatient():
                 return jsonify({'success':True,'message':'functional status added successfully'}),201
 
             else:
-                return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, Not Admin'}), 401
     except:
