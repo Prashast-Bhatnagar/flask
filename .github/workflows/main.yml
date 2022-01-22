@@ -17,9 +17,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         lfs: 'true'
-    - 
-      name: Build the Docker image
-      run: docker build -t flaskapp:latest -f Dockerfile .
     -
       name: Generate Deployment Package
       run: zip -r deploy.zip *
