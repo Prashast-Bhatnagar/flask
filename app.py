@@ -920,9 +920,12 @@ def getPregnancyRecordForPatient():
         
         if res:
             result = db.session.query(Pregnancy).filter(Pregnancy.patient_uid==res.id).all()
-            output=[]     
+            output=[]    
+            c=1 
             for value in result:
                 pat = {}
+                pat['id'] = c 
+                c += 1
                 pat['patient_id']=value.patient_uid
                 pat['pregnancy_status']=value.pregnancy_status
                 pat['pregnancy_outcome']=value.pregnancy_outcome
@@ -956,9 +959,12 @@ def getPregnancyRecordForDoctor(patient_id):
             patient = Patient_details.query.filter_by(id = patient_id).first()
             if patient:
                 result = db.session.query(Pregnancy).filter(Pregnancy.patient_uid==patient_id).all()
-                output=[]     
+                output=[]    
+                c=1 
                 for value in result:
                     pat = {}
+                    pat['id'] = c 
+                    c += 1
                     pat['patient_id']=value.patient_uid
                     pat['pregnancy_status']=value.pregnancy_status
                     pat['pregnancy_outcome']=value.pregnancy_outcome
@@ -1174,6 +1180,7 @@ def addImmunizations():
 @app.route('/api/getImmunizationsForPatient',methods=['GET'])
 def getImmunizationsForPatient():
     try:
+        c=1
         #patient verification
         token = request.headers['token']
         decoded = jwt.decode(token, options={"verify_signature": False})
@@ -1195,6 +1202,8 @@ def getImmunizationsForPatient():
 
                 for value in result2:  
                     obj={}  
+                    obj['id'] = c
+                    c += 1
                     obj['patient_id']=value.patient_uid
                     obj['immunization_item']=value.immunization_item
                     obj['administration_details_route']=value.administration_details_route
@@ -1223,6 +1232,7 @@ def getImmunizationsForDoctor(patient_id):
         doctor_check= doctor_details.query.filter_by(email=decoded["email"], password=decoded['password']).first()
         
         if doctor_check:
+            c=1
             patient_uid = patient_id
             #patient verification
             patient = Patient_details.query.filter_by(id = patient_uid).first()
@@ -1233,6 +1243,8 @@ def getImmunizationsForDoctor(patient_id):
                 result1 = db.session.query(Immunizations).filter(Immunizations.patient_uid==patient_uid).first()
                 
                 if result1:
+                    pat['id'] = c 
+                    c += 1
                     pat['patient_uid']=result1.patient_uid
                     pat['absence_of_info_absence_statement']=result1.absence_of_info_absence_statement
                     pat['absence_of_info_protocol_last_updated']=result1.absence_of_info_protocol_last_updated
@@ -1323,9 +1335,11 @@ def getMedicalDeviceForPatient():
         if res:
             result = db.session.query(Medical_devices).filter(Medical_devices.patient_uid==res.id).all()
             output=[]  
-
+            c=1
             for value in result:
                 pat = {}
+                pat['id'] = c
+                c += 1
                 pat['patient_id']=value.patient_uid
                 pat['device_name']=value.device_name
                 pat['body_site']=value.body_site
@@ -1369,9 +1383,11 @@ def getMedicalDeviceForDoctor(patient_id):
             if patient:
                 result = db.session.query(Medical_devices).filter(Medical_devices.patient_uid==patient_id).all()
                 output=[]   
-
+                c=1
                 for value in result:
                     pat = {}
+                    pat['id'] = c
+                    c += 1
                     pat['patient_id']=value.patient_uid
                     pat['device_name']=value.device_name
                     pat['body_site']=value.body_site
@@ -2130,9 +2146,11 @@ def getPastHistoryDoctor(patient_id):
             if patient: 
                 result = db.session.query(Past_history_of_illnesses).filter(Past_history_of_illnesses.patient_id==patient_id).all()
                 output=[]     
-
+                c=1
                 for value in result:
                     pat = {}
+                    pat['id'] = c
+                    c += 1
                     pat['patient_id']=value.patient_id
                     pat['problem_name']=value.problem_name
                     pat['body_site']=value.body_site
@@ -2370,7 +2388,7 @@ def getAdvanceDirectivesByPatient():
         res = Patient_details.query.filter_by(email=value['email'], password=value['password']).first()
         if res:
             output={} 
-            c = 0
+            c = 1
             result1 = db.session.query(Advance_care_directive).filter(Advance_care_directive.patient_id==res.id).first()
 
             if result1:
@@ -2431,7 +2449,6 @@ def getAdvanceDirectivesByDoctor(patient_id):
 
             if patient:
                 output={} 
-                c = 0
                 result1 = db.session.query(Advance_care_directive).filter(Advance_care_directive.patient_id==res.id).first()
 
                 if result1:
@@ -2448,7 +2465,8 @@ def getAdvanceDirectivesByDoctor(patient_id):
                     output['last_updated']=result1.last_updated
                     output['mandate']=result1.mandate
 
-                    pat =[]  
+                    pat =[] 
+                    c=1 
                     result2 = db.session.query(Limitation_of_treatment).filter(Limitation_of_treatment.patient_id==res.id).all()
                     
                     for value in result2:  
