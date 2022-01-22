@@ -64,6 +64,7 @@ def doctorRegisterSuccess():
         return jsonify({'success':False,'message':'not recieved JSON data'}),400
 
 # Api for Admin Login
+@cross_origin()
 @app.route('/api/adminlogin',methods=['POST'])
 def adminLoginSuccess():
     try:

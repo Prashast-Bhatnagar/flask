@@ -4,6 +4,6 @@ sqlalchemy==1.4.27
 PyJWT
 psycopg2-binary
 flask-migrate==2.5.2
-
+flask-cors
 
 
