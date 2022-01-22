@@ -690,7 +690,7 @@ def getPrescriptionByIdForDoct(presId):
 
                     output.append(detail)
                 if output:
-                    return jsonify({'success':True,'Prescription':output}),200
+                    return jsonify({'Prescription':output}),200
 
                 else:
                     return jsonify({'success':False,'message':'no record found'}), 404
@@ -729,7 +729,7 @@ def getPrescriptionByIdForPat(presId):
                     output.append(detail)
 
                 if output:
-                    return jsonify({'success':True,'Prescription':output}),200
+                    return jsonify({'Prescription':output}),200
 
                 else:
                     return jsonify({'success':False,'message':'no record found'}), 404
@@ -909,7 +909,7 @@ def addPregnancyDetails():
                 return jsonify({'success':True,'message':'pregnancy details Added successfully'}),201
 
             else:
-                return jsonify({'success':True,'message':'Invalid patient'}), 404
+                return jsonify({'success':False,'message':'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not Authorised, not admin'}), 401
     except Exception as e:
@@ -1546,7 +1546,7 @@ def getallAllergiesForPatient():
 
                 output['allergy_list'] = allergy_list
             
-                return jsonify({'success':True,'all_allergies_and_intolerances':output}), 200
+                return jsonify({'all_allergies_and_intolerances':output}), 200
             
             else:
                 return jsonify({'success':False,'message':'no record for this id'}), 404
@@ -1584,7 +1584,7 @@ def getAllergyByIdForDoctor(allergy_id):
                 output['onset'] = result.onset
                 output['severity'] = result.severity
                 output['protocol_last_updated'] = result.protocol_last_updated
-                return jsonify({'success':True,'allergy':output}), 200
+                return jsonify({'allergy':output}), 200
 
             else:
                 return jsonify({'success':False, "message":"Allergy does not exist"}), 404
@@ -1622,7 +1622,7 @@ def getAllergyByIdForPatient(allergy_id):
                 output['severity'] = result.severity
                 output['protocol_last_updated'] = result.protocol_last_updated
 
-                return jsonify({'success':True,'allergy':output}), 200
+                return jsonify({'allergy':output}), 200
             else:
                 return jsonify({'success':False, "message":"Not Authorised"}), 401
         else:
@@ -1714,7 +1714,7 @@ def get_vital_signs_for_doctor(patient_id):
                     obj['body_mass_index_unit']=result_vitals.body_mass_index_unit 
                     obj['blood_pressure_systolic']=result_vitals.blood_pressure_systolic 
                     obj['blood_pressure_diastolic']=result_vitals.blood_pressure_diastolic
-                    return jsonify({'success':True,'data':obj}), 200
+                    return jsonify({'data':obj}), 200
                 
                 else:
                     return jsonify({'success':False,'message':'no vital signs recorded for patient id'}), 404   
@@ -1760,7 +1760,7 @@ def get_vital_signs_for_patient():
                 obj['body_mass_index_unit']=result_vitals.body_mass_index_unit 
                 obj['blood_pressure_systolic']=result_vitals.blood_pressure_systolic 
                 obj['blood_pressure_diastolic']=result_vitals.blood_pressure_diastolic
-                return jsonify({'success':True,'data':obj}), 200
+                return jsonify({'data':obj}), 200
 
             else:
                 return jsonify({'success':False,'message':'no vital signs recorded for patient id'}), 404   
@@ -1865,7 +1865,7 @@ def getDignosisResultsForDoctor(patient_id):
                     obj['imaging_test_name'] = result.imaging_test_name
                     output.append(obj)
 
-                return jsonify({'success':True,'dignostic_test_result':output}), 200
+                return jsonify({'dignostic_test_result':output}), 200
 
             else:
                 return jsonify({'success':False,'message':'Invalid patient'}), 404
@@ -1900,7 +1900,7 @@ def getDignosisResultsForPatient():
                 obj['imaging_test_name'] = result.imaging_test_name
                 output.append(obj)
             
-            return jsonify({'success':True,'dignostic_test_result':output}), 200
+            return jsonify({'dignostic_test_result':output}), 200
 
         else:
             return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 401
@@ -1965,7 +1965,7 @@ def getDignosticsByIdForDoctor(dignostic_id):
                 obj['position'] = result.position
                 obj['image_datetime'] = result.image_datetime
                 obj['image'] = result.image
-                return jsonify({'success':True,'dignostic':obj}), 200
+                return jsonify({'dignostic':obj}), 200
 
             else:
                 return jsonify({'success':False,'message':'Wrong dignostic id'}), 404
@@ -2031,7 +2031,7 @@ def getDignosticsByIdForPatient(dignostic_id):
                 obj['position'] = result.position
                 obj['image_datetime'] = result.image_datetime
                 obj['image'] = result.image
-                return jsonify({'success':True,'dignostic':obj}), 200
+                return jsonify({'dignostic':obj}), 200
 
             else:
                 return jsonify({'success':False,'message':'Not Authorised'}), 401
@@ -2066,7 +2066,7 @@ def getPatientForDoctor():
                 obj['contact'] = patient.contact
                 obj['gender'] = patient.gender
                 obj['address'] = patient.address
-                return jsonify({"success":True,"patient":obj}), 200
+                return jsonify({"patient":obj}), 200
 
             else:
                 return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
@@ -2101,7 +2101,7 @@ def getPatientForAdmin():
                 obj['contact'] = patient.contact
                 obj['gender'] = patient.gender
                 obj['address'] = patient.address
-                return jsonify({"success":True,"patient":obj}), 200
+                return jsonify({"patient":obj}), 200
 
             else:
                 return jsonify({'success':False,'message':'Not Authorised, not a patient'}), 404
@@ -2291,7 +2291,7 @@ def getProblemListByPatient():
                     obj['protocol_last_updated']=value.protocol_last_updated
                     pat.append(obj)
                 output['problem list'] = pat    
-                return jsonify({"success":True,"history":output}), 200
+                return jsonify({"history":output}), 200
 
             else:
                     return jsonify({'success':False,'message':'no record found'}), 404
@@ -2347,12 +2347,12 @@ def getProblemListByDoctor(patient_id):
                         obj['protocol_last_updated']=value.protocol_last_updated
                         pat.append(obj)
                     output['problem list'] = pat  
-                    return jsonify({"success":True,"history":output}), 200
+                    return jsonify({"history":output}), 200
             
                 else:
                     return jsonify({'success':False,'message':'no record found'}), 404
             else:
-                return jsonify({'success':True, "message":'Invalid patient'}), 404
+                return jsonify({'success':False, "message":'Invalid patient'}), 404
         else:
             return jsonify({'success':False,'message':'Not authorised, not a doctor'}), 401 
     except:
@@ -2762,7 +2762,7 @@ def getplanofcare():
                 pat['receiver_order_identifier']=value.receiver_order_identifier
                 pat['request_status']=value.request_status
             if pat:    
-                return jsonify({"success":True, "planofcare":pat}), 200
+                return jsonify({"planofcare":pat}), 200
             else:
                 return jsonify({'success':False, 'message':'No record found'}), 404
         else:
@@ -2813,7 +2813,7 @@ def getplanofcarefordoctor(patient_id):
                     pat['request_status']=value.request_status
 
                 if pat:    
-                    return jsonify({'success':True,"planofcare":pat}), 200
+                    return jsonify({"planofcare":pat}), 200
 
                 else:
                     return jsonify({'success':False, 'message':'No record found'}), 404
@@ -2940,7 +2940,7 @@ def getfunctionalstatus():
                 pat['clinical_impression']=value.clinical_impression
             
             if pat:
-                return jsonify({'success':True,"functionalstatus":pat}),200
+                return jsonify({"functionalstatus":pat}),200
             
             else:
                 return jsonify({'success':False, 'message':'No record found'}), 404
@@ -2980,7 +2980,7 @@ def getfunctionalstatusfordoctor(patient_id):
                     pat['protocol_last_updated']=value.protocol_last_updated
                     pat['clinical_impression']=value.clinical_impression
                 if pat:
-                    return jsonify({'success':True,"functionalstatus":pat}), 200
+                    return jsonify({"functionalstatus":pat}), 200
 
                 else:
                     return jsonify({'success':False,'message':'No record for patient'}), 404 
