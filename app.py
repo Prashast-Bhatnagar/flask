@@ -10,6 +10,7 @@ db.session.commit()
 key='super-secret'
 
 #Api for Admin register
+@cross_origin()
 @app.route('/api/adminregister', methods = ['POST'])
 def adminRegisterSuccess():
     try:
@@ -27,6 +28,7 @@ def adminRegisterSuccess():
         return jsonify({"success":False, "message":"not recieved JSON data"}), 400
 
 # Api for Patient Register
+@cross_origin()
 @app.route('/api/patientregister', methods=['POST'])
 def patientRegisterSuccess():
     try:    
@@ -46,6 +48,7 @@ def patientRegisterSuccess():
 
 
 # Api for Doctor Register
+@cross_origin()
 @app.route('/api/doctorregister', methods=['POST'])
 def doctorRegisterSuccess():
     try:    
@@ -81,6 +84,7 @@ def adminLoginSuccess():
         return jsonify({'success':False,'message':'not recieved JSON data'}), 400
 
 # Api for Patient Login
+@cross_origin()
 @app.route('/api/patientlogin', methods=['POST'])
 def patientLoginSucess():
     try:
@@ -100,6 +104,7 @@ def patientLoginSucess():
 
 
 # Api for Doctor Login
+@cross_origin()
 @app.route('/api/doctorlogin', methods=['POST'])
 def doctorLoginSucess():
     try:
@@ -118,6 +123,7 @@ def doctorLoginSucess():
 
 
 #1. Medication Summary
+@cross_origin()
 @app.route('/api/ips/medicationsummary/getallmedicationstatementsforpatient',methods=['GET'])
 def getallmedicationstatements():
     try:
@@ -158,6 +164,7 @@ def getallmedicationstatements():
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
 
+@cross_origin()
 @app.route('/api/ips/medicationsummary/getallmedicationstatementsfordoctor/<int:patient_id>',methods=['GET'])
 def getallmedicationstatementsfordoctor(patient_id):
     try:
@@ -201,7 +208,7 @@ def getallmedicationstatementsfordoctor(patient_id):
         print(e)
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
-
+@cross_origin()
 @app.route('/api/ips/medicationsummary/getmedicationstatementforpatient/<int:Order_Id>',methods=['GET'])
 def getmedicationstatement(Order_Id):
     try:
@@ -302,7 +309,7 @@ def getmedicationstatement(Order_Id):
     except:
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
-
+@cross_origin()
 @app.route('/api/ips/medicationsummary/getmedicationstatementfordoctor/<int:Order_Id>',methods=['GET'])
 def getmedicationstatementfordoctor(Order_Id):
     try:
@@ -405,7 +412,7 @@ def getmedicationstatementfordoctor(Order_Id):
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
 
-
+@cross_origin()
 @app.route('/api/ips/medicationsummary/addmedicationstatement',methods=['POST'])
 def addmedicationstatement():
     try:
@@ -508,7 +515,8 @@ def addmedicationstatement():
 
 
 #2. PRESCRIPTION
-# ADD prescription POST 
+# ADD prescription POST
+@cross_origin() 
 @app.route('/api/addPrescription', methods=['POST'])
 def addPrescription():
     try:
@@ -588,6 +596,7 @@ def addPrescription():
 
         
 # GET API for prescription
+@cross_origin()
 @app.route('/api/getAllPrescriptionsForPatient', methods=['GET'])
 def getAllPrescriptionsForPatient():
     try:
@@ -620,7 +629,7 @@ def getAllPrescriptionsForPatient():
 
 
 # For doctor
-
+@cross_origin()
 @app.route('/api/getAllPrescriptionsForDoctor', methods=['GET'])
 def getAllPrescriptionsForDoctor():
 
@@ -656,6 +665,7 @@ def getAllPrescriptionsForDoctor():
 
 
 # getPrescription by ID
+@cross_origin()
 @app.route('/api/getPrescriptionByIdForDoctor/<int:presId>', methods=['GET'])
 def getPrescriptionByIdForDoct(presId):
     try:
@@ -690,6 +700,7 @@ def getPrescriptionByIdForDoct(presId):
         return jsonify({'success':False,'message':'not recieved JSON/Token data'}),400 
 
 # getprescription by id
+@cross_origin()
 @app.route('/api/getPrescriptionByIdForPatient/<int:presId>', methods=['GET'])
 def getPrescriptionByIdForPat(presId):
     try:
@@ -723,6 +734,7 @@ def getPrescriptionByIdForPat(presId):
         return jsonify({'success':False,'message':'not recieved JSON/Token data'}),400
 
 #getmedication order by id API
+@cross_origin()
 @app.route('/api/getMedicationOrderByIdForDoctor/<int:medId>', methods=['GET'])
 def getMedicationOrderByIdForDoctor(medId):
     try:
@@ -791,6 +803,7 @@ def getMedicationOrderByIdForDoctor(medId):
 
 
 #getmedication order by id API
+@cross_origin()
 @app.route('/api/getMedicationOrderByIdForPatient/<int:medId>', methods=['GET'])
 def getMedicationOrderByIdForPatient(medId):
     try:
@@ -857,6 +870,7 @@ def getMedicationOrderByIdForPatient(medId):
 
 #3. Pregnancy
 # API for POST PREGNANCY 
+@cross_origin()
 @app.route('/api/addPregnancyDetails',methods=['POST'])
 def addPregnancyDetails():
     try:
@@ -895,6 +909,7 @@ def addPregnancyDetails():
 
 
 # Api for Get past history of PAtient BY PAtient Id
+@cross_origin()
 @app.route('/api/getPregnancyRecordForPatient',methods=['GET'])
 def getPregnancyRecordForPatient():
     try:
@@ -927,6 +942,7 @@ def getPregnancyRecordForPatient():
     
 
 # Api for Get past history of PAtient BY Doctor 
+@cross_origin()
 @app.route('/api/getPregnancyRecordForDoctor/<int:patient_id>',methods=['GET'])
 def getPregnancyRecordForDoctor(patient_id):
     try:
@@ -965,6 +981,7 @@ def getPregnancyRecordForDoctor(patient_id):
 
 
 #4. History of Proceedures
+@cross_origin()
 @app.route('/api/addHistoryOfProcedure',methods=['POST'])
 def historyOfProcedure():
     try:
@@ -1014,6 +1031,7 @@ def historyOfProcedure():
 
 
 # GET API FOR Historyofprocedure for Doctor
+@cross_origin()
 @app.route('/api/getHistoryOfProcedureforDoctor/<int:patient_id>',methods=['GET'])
 def getHistoryOfProcedureForDoctor(patient_id):
     try:
@@ -1060,6 +1078,7 @@ def getHistoryOfProcedureForDoctor(patient_id):
 
 
 # GET API FOR Historyofprocedure for Patient
+@cross_origin()
 @app.route('/api/getHistoryOfProcedureforPatient',methods=['GET'])
 def getHistoryOfProcedureForPatient():
     try:
@@ -1102,6 +1121,7 @@ def getHistoryOfProcedureForPatient():
 
 #5. Immunization
 # POST for add immunization by Admin
+@cross_origin()
 @app.route('/api/addImmunizations',methods=['POST'])
 def addImmunizations():
     try:
@@ -1150,6 +1170,7 @@ def addImmunizations():
     
 
 # GET API FOR Immunizations for Patient
+@cross_origin()
 @app.route('/api/getImmunizationsForPatient',methods=['GET'])
 def getImmunizationsForPatient():
     try:
@@ -1191,6 +1212,7 @@ def getImmunizationsForPatient():
         return jsonify({'success':False,'message':'not recieved JSON data'}),400
 
 # GET API FOR Immunizations for Doctor
+@cross_origin()
 @app.route('/api/getImmunizationsForDoctor/<int:patient_id>',methods=['GET'])
 def getImmunizationsForDoctor(patient_id):
 
@@ -1242,6 +1264,7 @@ def getImmunizationsForDoctor(patient_id):
 
 #6. Medical Devices
 # API for POST Medical Device
+@cross_origin()
 @app.route('/api/addMedicalDevice',methods=['POST'])
 def addMedicalDevice():
     try:
@@ -1288,6 +1311,7 @@ def addMedicalDevice():
 
 
 # Api for Get MedicalDevice For Patient 
+@cross_origin()
 @app.route('/api/getMedicalDeviceForPatient',methods=['GET'])
 def getMedicalDeviceForPatient():
     try:
@@ -1329,6 +1353,7 @@ def getMedicalDeviceForPatient():
 
 
 # Api for Get MedicalDevice For Doctor 
+@cross_origin()
 @app.route('/api/getMedicalDeviceForDoctor/<int:patient_id>',methods=['GET'])
 def getMedicalDeviceForDoctor(patient_id):
     try:
@@ -1376,6 +1401,7 @@ def getMedicalDeviceForDoctor(patient_id):
 
 #7. Allergies
 #add allergy
+@cross_origin()
 @app.route('/api/add_allergies_and_intolerances', methods=['POST'])
 def add_allergies_and_intolerances():
     try:
@@ -1411,6 +1437,7 @@ def add_allergies_and_intolerances():
 
 #get all allergies
     #for doctor
+@cross_origin()
 @app.route('/api/get_all_allergies_and_intolerances_for_doctor/<int:patient_id>', methods=['GET'])
 def getallAllergiesForDoctor(patient_id):
     try:
@@ -1456,6 +1483,7 @@ def getallAllergiesForDoctor(patient_id):
 
 #get all allergies
     #for patient
+@cross_origin()
 @app.route('/api/get_all_allergies_and_intolerances_for_patient', methods=['GET'])
 def getallAllergiesForPatient():
     try:
@@ -1497,6 +1525,7 @@ def getallAllergiesForPatient():
 
 #get allergy by id
     #for doctor
+@cross_origin()
 @app.route('/api/get_allergy_by_id_for_doctor/<int:allergy_id>', methods = ['GET'])
 def getAllergyByIdForDoctor(allergy_id):
     try:
@@ -1533,6 +1562,7 @@ def getAllergyByIdForDoctor(allergy_id):
 
 #get allergy by id
     #for patient
+@cross_origin()
 @app.route('/api/get_allergy_by_id_for_patient/<int:allergy_id>', methods = ['GET'])
 def getAllergyByIdForPatient(allergy_id):
     try:
@@ -1569,6 +1599,7 @@ def getAllergyByIdForPatient(allergy_id):
 
 #8. Vital signs
 #add/update vital signs
+@cross_origin()
 @app.route('/api/add_vital_signs', methods=['POST'])
 def add_vital_signs():
     try:
@@ -1614,6 +1645,7 @@ def add_vital_signs():
 
 #get vital signs
     #for doctor
+@cross_origin()
 @app.route('/api/get_vital_signs_for_doctor/<int:patient_id>', methods=['GET'])
 def get_vital_signs_for_doctor(patient_id):
     try:
@@ -1660,6 +1692,7 @@ def get_vital_signs_for_doctor(patient_id):
 
 #get vital signs
     #for patient
+@cross_origin()
 @app.route('/api/get_vital_signs_for_patient', methods=['GET'])
 def get_vital_signs_for_patient():
     try:
@@ -1699,6 +1732,7 @@ def get_vital_signs_for_patient():
 
 #9. Dignostics
 #add dignosis
+@cross_origin()
 @app.route('/api/add_dignostics_results', methods=['POST'])
 def add_dignostics_results():
     try:
@@ -1766,6 +1800,7 @@ def add_dignostics_results():
 
 #get all dignosis
     #for doctor
+@cross_origin()
 @app.route('/api/get_dignosis_results_for_doctor/<int:patient_id>', methods=['GET'])
 def getDignosisResultsForDoctor(patient_id):
     try:
@@ -1803,6 +1838,7 @@ def getDignosisResultsForDoctor(patient_id):
 
 #get all dignosis
     #for patient
+@cross_origin()
 @app.route('/api/get_dignosis_results_for_patient', methods=['GET'])
 def getDignosisResultsForPatient():
     try:
@@ -1836,6 +1872,7 @@ def getDignosisResultsForPatient():
 
 #get dignostics_by_id
     #for doctor
+@cross_origin()
 @app.route('/api/get_dognostics_by_id_for_doctor/<int:dignostic_id>', methods=['GET'])
 def getDignosticsByIdForDoctor(dignostic_id):
     try:
@@ -1901,6 +1938,7 @@ def getDignosticsByIdForDoctor(dignostic_id):
 
 #get dignostics_by_id
     #for patient
+@cross_origin()
 @app.route('/api/get_dognostics_by_id_for_patient/<int:dignostic_id>', methods=['GET'])
 def getDignosticsByIdForPatient(dignostic_id):
     try:
@@ -1965,6 +2003,7 @@ def getDignosticsByIdForPatient(dignostic_id):
 
 # GET PATIENT
     # for doctor
+@cross_origin()
 @app.route('/api/getPatientForDoctor', methods=['GET'])
 def getPatientForDoctor():
     try:
@@ -1999,6 +2038,7 @@ def getPatientForDoctor():
 
 # GET PATIENT
     # for admin
+@cross_origin()
 @app.route('/api/getPatientForAdmin', methods=['GET'])
 def getPatientForAdmin():
     try:
@@ -2035,6 +2075,7 @@ def getPatientForAdmin():
 
 #10. Past History of patient
 # Api for Get past history of Patient BY Patient Id
+@cross_origin()
 @app.route('/api/getpasthistoryofpatient',methods=['GET'])
 def getPastHistoryPatient():
     try:
@@ -2074,6 +2115,7 @@ def getPastHistoryPatient():
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
 # Api for Get past history of Patient BY Doctor
+@cross_origin()
 @app.route('/api/getpasthistoryofpatientfordoctor/<int:patient_id>',methods=['GET'])
 def getPastHistoryDoctor(patient_id):
     try:
@@ -2118,6 +2160,7 @@ def getPastHistoryDoctor(patient_id):
 # Api for get past history of patient by patient id and past history id
    
 # Api for create past history of patient
+@cross_origin()
 @app.route('/api/createpasthistoryofpatient',methods=['POST'])
 def createPastHistoryOfPatient():
     try:
@@ -2161,6 +2204,7 @@ def createPastHistoryOfPatient():
 #11. problem List
 
 # Api gor Get problem List of Patient
+@cross_origin()
 @app.route('/api/getproblemlistbypatient',methods=['GET'])
 def getProblemListByPatient():
     try:
@@ -2208,6 +2252,7 @@ def getProblemListByPatient():
         return jsonify({'success':False,'message':'not recieved JSON data'}),400     
 
 # Api for Get problem List of Patient by doctor
+@cross_origin()
 @app.route('/api/getproblemlistbydoctor/<int:patient_id>',methods=['GET'])
 def getProblemListByDoctor(patient_id):
     try:
@@ -2262,6 +2307,7 @@ def getProblemListByDoctor(patient_id):
 
 
 # Api for Create problem List
+@cross_origin()
 @app.route('/api/addproblemlist',methods=['POST'])
 def addproblemList():
     try:
@@ -2315,6 +2361,7 @@ def addproblemList():
 
 #12. Advanced Directives
 # Api for get advance directives by patient 
+@cross_origin()
 @app.route('/api/getadvanceddirectivesbypatient',methods=['GET'])
 def getAdvanceDirectivesByPatient():
     try:
@@ -2371,6 +2418,7 @@ def getAdvanceDirectivesByPatient():
 
 
 # Api for get advance directives by doctor
+@cross_origin()
 @app.route('/api/getadvanceddirectivesbydoctor/<int:patient_id>',methods=['GET'])
 def getAdvanceDirectivesByDoctor(patient_id):
     try:
@@ -2433,6 +2481,7 @@ def getAdvanceDirectivesByDoctor(patient_id):
 
 
 # Api for create Advance directives history  
+@cross_origin()
 @app.route('/api/addadvanceddirectives',methods=['POST'])
 def addadvancedDirectives():
     try:
@@ -2512,6 +2561,7 @@ def addadvancedDirectives():
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
   
 #13. Social History
+@cross_origin()
 @app.route('/api/getsocialhistoryforpatient',methods=['GET'])
 def getSocialHistoryPatient():
     try:
@@ -2540,7 +2590,7 @@ def getSocialHistoryPatient():
         print(e)
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
-
+@cross_origin()
 @app.route('/api/getsocialhistoryfordoctor/<int:patient_id>',methods=['GET'])
 def getSocialHistoryDoctor(patient_id):
     try:
@@ -2573,7 +2623,7 @@ def getSocialHistoryDoctor(patient_id):
         print(e)
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
-
+@cross_origin()
 @app.route('/api/createsocialhistoryofpatient',methods=['POST'])
 def createSocialHistoryOfPatient(): #tobacco_smoking and alcohol_consumption
     try:
@@ -2618,6 +2668,7 @@ def createSocialHistoryOfPatient(): #tobacco_smoking and alcohol_consumption
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
 #14. Plan of Care
+@cross_origin()
 @app.route('/api/getplanofcareforpatient',methods=['GET'])
 def getplanofcare():
     try:
@@ -2661,7 +2712,7 @@ def getplanofcare():
     except:
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
-
+@cross_origin()
 @app.route('/api/getplanofcarefordoctor/<int:patient_id>',methods=['GET'])
 def getplanofcarefordoctor(patient_id):
     try:
@@ -2712,7 +2763,7 @@ def getplanofcarefordoctor(patient_id):
     except:
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
-
+@cross_origin()
 @app.route('/api/createplanofcareofpatient',methods=['POST'])
 def createplanofcareOfPatient(): #service_request and care_plan
     try:
@@ -2800,6 +2851,7 @@ def createplanofcareOfPatient(): #service_request and care_plan
         return jsonify({'success':False,'message':'Request misses token/json data'}), 400
 
 #15. functional status
+@cross_origin()
 @app.route('/api/getfunctionalstatusforpatient',methods=['GET'])
 def getfunctionalstatus():
     try:
@@ -2833,7 +2885,7 @@ def getfunctionalstatus():
     except:
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
-
+@cross_origin()
 @app.route('/api/getfunctionalstatusfordoctor/<int:patient_id>',methods=['GET'])
 def getfunctionalstatusfordoctor(patient_id):
     try:
@@ -2872,7 +2924,7 @@ def getfunctionalstatusfordoctor(patient_id):
     except:
         return jsonify({'success':False,'message':'not recieved JSON data'}),400 
 
-
+@cross_origin()
 @app.route('/api/createfunctionalstatus',methods=['POST'])
 def createfunctionalOfPatient():
     try:
