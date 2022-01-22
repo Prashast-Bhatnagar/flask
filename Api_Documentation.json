@@ -1,0 +1,2760 @@
+{
+	"info": {
+		"_postman_id": "877bc746-a870-4ea0-b9c1-e1b14f748e84",
+		"name": "EasyPatientAccess",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Patient Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"vedika\",\n    \"email\":\"vedika@gmail.com\",\n    \"password\":\"1234\",\n    \"age\":\"20\",\n    \"contact\":\"7878787878\",\n    \"address\":\"delhi\",\n    \"gender\":\"female\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/patientregister",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"patientregister"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"vedika\",\n    \"email\":\"vedika@gmail.com\",\n    \"password\":\"1234\",\n    \"age\":\"20\",\n    \"contact\":\"7878787878\",\n    \"address\":\"delhi\",\n    \"gender\":\"female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/patientregister",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"patientregister"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:14:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Registration Successful\",\n    \"success\": true\n}"
+				},
+				{
+					"name": "Failure to add patient at same email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"vedika\",\n    \"email\":\"vedika@gmail.com\",\n    \"password\":\"1234\",\n    \"age\":\"20\",\n    \"contact\":\"7878787878\",\n    \"address\":\"delhi\",\n    \"gender\":\"female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/patientregister",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"patientregister"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:16:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Patient Already Existed for this email\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Doctor Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\" Dr.vishal\",\n        \"category\":\"Specialist\",\n        \"email\":\"vishal@gmail.com\",\n        \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/doctorregister",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"doctorregister"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\" Dr.vishal\",\n        \"category\":\"Specialist\",\n        \"email\":\"vishal@gmail.com\",\n        \"password\":\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/doctorregister",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"doctorregister"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:17:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Registration Successful\",\n    \"success\": true\n}"
+				},
+				{
+					"name": "Failure to add Doctor at same email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\" Dr.vishal\",\n        \"category\":\"Specialist\",\n        \"email\":\"vishal@gmail.com\",\n        \"password\":\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/doctorregister",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"doctorregister"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:18:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Doctor Already Existed for this email\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/adminlogin",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"adminlogin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/adminlogin",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"adminlogin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:19:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w\"\n}"
+				},
+				{
+					"name": "Failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"adm\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/adminlogin",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"adminlogin"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:20:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Wrong Password\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Patient Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"vedika@gmail.com\",\n    \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/patientlogin",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"patientlogin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"vedika@gmail.com\",\n    \"password\":\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/patientlogin",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"patientlogin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:21:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"patient_info\": {\n        \"address\": \"delhi\",\n        \"age\": \"20\",\n        \"contact\": \"7878787878\",\n        \"email\": \"vedika@gmail.com\",\n        \"gender\": \"female\",\n        \"id\": 2,\n        \"name\": \"vedika\"\n    },\n    \"success\": true,\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4\"\n}"
+				},
+				{
+					"name": "Failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"vedika@gmail.com\",\n    \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/patientlogin",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"patientlogin"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:22:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"invalid email/Password\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Doctor Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"vishal@gmail.com\",\n        \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/doctorlogin",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"doctorlogin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"vishal@gmail.com\",\n        \"password\":\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/doctorlogin",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"doctorlogin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:23:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"doctor_info\": {\n        \"category\": \"Specialist\",\n        \"email\": \"vishal@gmail.com\",\n        \"name\": \" Dr.vishal\"\n    },\n    \"success\": true,\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug\"\n}"
+				},
+				{
+					"name": "Failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"vishal@gmail.com\",\n        \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/doctorlogin",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"doctorlogin"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:24:11 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"invalid email/Password\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Patient For Admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w",
+						"description": "Admin Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPatientForAdmin?email=vedika@gmail.com",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"getPatientForAdmin"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "vedika@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w",
+								"description": "Admin Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPatientForAdmin?email=vedika@gmail.com",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getPatientForAdmin"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vedika@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:29:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"patient\": {\n        \"address\": \"delhi\",\n        \"age\": \"20\",\n        \"contact\": \"7878787878\",\n        \"email\": \"vedika@gmail.com\",\n        \"gender\": \"female\",\n        \"id\": 2,\n        \"name\": \"vedika\"\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "Failure",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPatientForAdmin?email=vedika@gmail.com",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getPatientForAdmin"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vedika@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:31:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not authorised, not an admin\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get PAtient For Doctor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+						"description": "Patient Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPatientForDoctor?email=vedika@gmail.com",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"getPatientForDoctor"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "vedika@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPatientForDoctor?email=vedika@gmail.com",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getPatientForDoctor"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vedika@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:33:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"patient\": {\n        \"address\": \"delhi\",\n        \"age\": \"20\",\n        \"contact\": \"7878787878\",\n        \"email\": \"vedika@gmail.com\",\n        \"gender\": \"female\",\n        \"id\": 2,\n        \"name\": \"vedika\"\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "Failure",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPatientForDoctor?email=vedika@gmail.com",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getPatientForDoctor"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vedika@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:35:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not authorised, not a doctor\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Mediaction Statement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w",
+						"description": "Admin Token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n        \"patient_id\":\"2\",\n        \"medication_item\":\"atenolol 100mg\",\n\t\t\"medication_name\":\"cefuroxim\",\n\t\t\"medication_form\":\"tablet\",\n        \"strength\":\"1\",\n        \"exact_timing_critical\":\"2\",\n\t\t\"medication_category\":\"ad-hoc mixture\",\n\t\t\"medication_strength_numerator\":9,\n\t\t\"medication_strength_numerator_unit\":\"mg\",\n\t\t\"medication_strength_denominator\":0.3,\n\t\t\"medication_strength_denominator_unit\":\"g\",\n\t\t\"unit_of_presentation\":\"capsule\",\n\t\t\"strength(concentration)\":\"10 mgml\",\n\t\t\"manufacturer\":\"abbott\",\n\t\t\"batch_id\":1,\n\t\t\"expiry\":\"2023-09-12\",\n\t\t\"amount\":\"1\",\n\t\t\"amount_unit\":\"mg\",\n\t\t\"alternate_amount\":\"5\",\n\t\t\"alternate_amount_unit\":\"ml\",\n\t\t\"role\":\"therapeutic\",\n\t\t\"description\":\"therapy related medication\",\n\n        \"dose_amount\":\"1\",\n\t\t\"dose_unit\":\"mg\",\n\t\t\"dose_formula\":\"12\",\n\t\t\"dose_description\":\"2 to 3 times a day\",\n\t\t\"dose_frequency_lower\":\"2\",\n\t\t\"dose_frequency_lower_rate\":\"1\",\n\t\t\"dose_frequency_higher\":\"3\",\n\t\t\"dose_frequency_higher_rate\":\"1\",\n\t\t\"dose_interval\":\"03:00\",\n\t\t\"dose_specific_time\":\"03:00\",\n\t\t\"dose_specific_time_lower\":\"10:00\",\n\t\t\"dose_specific_time_upper\":\"20:00\",\n\t\t\"dose_timing_description\":\"every day\",\n\t\t\"dose_exact_timing_critical\":\"FALSE\",\n\t\t\"as_required\":\"TRUE\",\n\t\t\"as_required_criterion\":\"for stress relieve\",\n\t\t\"dose_event_name\":\"after every meal\",\n\t\t\"dose_time_offset\":\"03:00\",\n\t\t\"dose_on\":\"03:00\",\n\t\t\"dose_off\":\"03:00\",\n\t\t\"dose_repetetions\":\"6\",\n\n        \"route\":\"oral\",\n\t\t\"body_site\":\"head\",\n\n        \"time_repetetion_interval\":\"1\",\n        \"time_frequency_lower\":\"2\",\n\t\t\"time_frequency_lower_rate\":\"1\",\n\t\t\"time_frequency_higher\":\"3\",\n\t\t\"time_frequency_higher_rate\":\"3\",\n\t\t\"time_specific_date\":\"2020-01-01\",\n\t\t\"time_specific_date_lower\":\"2020-01-01\",\n\t\t\"time_specific_date_upper\":\"2020-01-01\",\n\t\t\"time_specific_day_of_week\":\"1\",\n\t\t\"time_specific_day_of_month\":\"1\",\n\t\t\"time_event_time_offset\":\"01:00\",\n        \"timing_description\":\"every day\",\n\t\t\"time_event_name\":\"after meal\",\n\t\t\"timing_on\":\"03:00\",\n\t\t\"timing_off\":\"08:00\",\n\t\t\"timing_repetetions\":\"9\",\n\n        \"global_exclusion_of_adverse_reactions\":\"\",\n        \"absence_of_information_statement\":\"\",\n        \"absence_of_information_protocol_last_updated\":\"\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/addmedicationstatement",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"ips",
+						"medicationsummary",
+						"addmedicationstatement"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w",
+								"description": "Admin Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n        \"patient_id\":\"2\",\n        \"medication_item\":\"atenolol 100mg\",\n\t\t\"medication_name\":\"cefuroxim\",\n\t\t\"medication_form\":\"tablet\",\n        \"strength\":\"1\",\n        \"exact_timing_critical\":\"2\",\n\t\t\"medication_category\":\"ad-hoc mixture\",\n\t\t\"medication_strength_numerator\":9,\n\t\t\"medication_strength_numerator_unit\":\"mg\",\n\t\t\"medication_strength_denominator\":0.3,\n\t\t\"medication_strength_denominator_unit\":\"g\",\n\t\t\"unit_of_presentation\":\"capsule\",\n\t\t\"strength(concentration)\":\"10 mgml\",\n\t\t\"manufacturer\":\"abbott\",\n\t\t\"batch_id\":1,\n\t\t\"expiry\":\"2023-09-12\",\n\t\t\"amount\":\"1\",\n\t\t\"amount_unit\":\"mg\",\n\t\t\"alternate_amount\":\"5\",\n\t\t\"alternate_amount_unit\":\"ml\",\n\t\t\"role\":\"therapeutic\",\n\t\t\"description\":\"therapy related medication\",\n\n        \"dose_amount\":\"1\",\n\t\t\"dose_unit\":\"mg\",\n\t\t\"dose_formula\":\"12\",\n\t\t\"dose_description\":\"2 to 3 times a day\",\n\t\t\"dose_frequency_lower\":\"2\",\n\t\t\"dose_frequency_lower_rate\":\"1\",\n\t\t\"dose_frequency_higher\":\"3\",\n\t\t\"dose_frequency_higher_rate\":\"1\",\n\t\t\"dose_interval\":\"03:00\",\n\t\t\"dose_specific_time\":\"03:00\",\n\t\t\"dose_specific_time_lower\":\"10:00\",\n\t\t\"dose_specific_time_upper\":\"20:00\",\n\t\t\"dose_timing_description\":\"every day\",\n\t\t\"dose_exact_timing_critical\":\"FALSE\",\n\t\t\"as_required\":\"TRUE\",\n\t\t\"as_required_criterion\":\"for stress relieve\",\n\t\t\"dose_event_name\":\"after every meal\",\n\t\t\"dose_time_offset\":\"03:00\",\n\t\t\"dose_on\":\"03:00\",\n\t\t\"dose_off\":\"03:00\",\n\t\t\"dose_repetetions\":\"6\",\n\n        \"route\":\"oral\",\n\t\t\"body_site\":\"head\",\n\n        \"time_repetetion_interval\":\"1\",\n        \"time_frequency_lower\":\"2\",\n\t\t\"time_frequency_lower_rate\":\"1\",\n\t\t\"time_frequency_higher\":\"3\",\n\t\t\"time_frequency_higher_rate\":\"3\",\n\t\t\"time_specific_date\":\"2020-01-01\",\n\t\t\"time_specific_date_lower\":\"2020-01-01\",\n\t\t\"time_specific_date_upper\":\"2020-01-01\",\n\t\t\"time_specific_day_of_week\":\"1\",\n\t\t\"time_specific_day_of_month\":\"1\",\n\t\t\"time_event_time_offset\":\"01:00\",\n        \"timing_description\":\"every day\",\n\t\t\"time_event_name\":\"after meal\",\n\t\t\"timing_on\":\"03:00\",\n\t\t\"timing_off\":\"08:00\",\n\t\t\"timing_repetetions\":\"9\",\n\n        \"global_exclusion_of_adverse_reactions\":\"\",\n        \"absence_of_information_statement\":\"\",\n        \"absence_of_information_protocol_last_updated\":\"\"\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/addmedicationstatement",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"addmedicationstatement"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:37:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"item added successfully\",\n    \"success\": true\n}"
+				},
+				{
+					"name": "Invalid Patient Id",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w",
+								"description": "Admin Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n        \"patient_id\":\"3\",\n        \"medication_item\":\"atenolol 100mg\",\n\t\t\"medication_name\":\"cefuroxim\",\n\t\t\"medication_form\":\"tablet\",\n        \"strength\":\"1\",\n        \"exact_timing_critical\":\"2\",\n\t\t\"medication_category\":\"ad-hoc mixture\",\n\t\t\"medication_strength_numerator\":9,\n\t\t\"medication_strength_numerator_unit\":\"mg\",\n\t\t\"medication_strength_denominator\":0.3,\n\t\t\"medication_strength_denominator_unit\":\"g\",\n\t\t\"unit_of_presentation\":\"capsule\",\n\t\t\"strength(concentration)\":\"10 mgml\",\n\t\t\"manufacturer\":\"abbott\",\n\t\t\"batch_id\":1,\n\t\t\"expiry\":\"2023-09-12\",\n\t\t\"amount\":\"1\",\n\t\t\"amount_unit\":\"mg\",\n\t\t\"alternate_amount\":\"5\",\n\t\t\"alternate_amount_unit\":\"ml\",\n\t\t\"role\":\"therapeutic\",\n\t\t\"description\":\"therapy related medication\",\n\n        \"dose_amount\":\"1\",\n\t\t\"dose_unit\":\"mg\",\n\t\t\"dose_formula\":\"12\",\n\t\t\"dose_description\":\"2 to 3 times a day\",\n\t\t\"dose_frequency_lower\":\"2\",\n\t\t\"dose_frequency_lower_rate\":\"1\",\n\t\t\"dose_frequency_higher\":\"3\",\n\t\t\"dose_frequency_higher_rate\":\"1\",\n\t\t\"dose_interval\":\"03:00\",\n\t\t\"dose_specific_time\":\"03:00\",\n\t\t\"dose_specific_time_lower\":\"10:00\",\n\t\t\"dose_specific_time_upper\":\"20:00\",\n\t\t\"dose_timing_description\":\"every day\",\n\t\t\"dose_exact_timing_critical\":\"FALSE\",\n\t\t\"as_required\":\"TRUE\",\n\t\t\"as_required_criterion\":\"for stress relieve\",\n\t\t\"dose_event_name\":\"after every meal\",\n\t\t\"dose_time_offset\":\"03:00\",\n\t\t\"dose_on\":\"03:00\",\n\t\t\"dose_off\":\"03:00\",\n\t\t\"dose_repetetions\":\"6\",\n\n        \"route\":\"oral\",\n\t\t\"body_site\":\"head\",\n\n        \"time_repetetion_interval\":\"1\",\n        \"time_frequency_lower\":\"2\",\n\t\t\"time_frequency_lower_rate\":\"1\",\n\t\t\"time_frequency_higher\":\"3\",\n\t\t\"time_frequency_higher_rate\":\"3\",\n\t\t\"time_specific_date\":\"2020-01-01\",\n\t\t\"time_specific_date_lower\":\"2020-01-01\",\n\t\t\"time_specific_date_upper\":\"2020-01-01\",\n\t\t\"time_specific_day_of_week\":\"1\",\n\t\t\"time_specific_day_of_month\":\"1\",\n\t\t\"time_event_time_offset\":\"01:00\",\n        \"timing_description\":\"every day\",\n\t\t\"time_event_name\":\"after meal\",\n\t\t\"timing_on\":\"03:00\",\n\t\t\"timing_off\":\"08:00\",\n\t\t\"timing_repetetions\":\"9\",\n\n        \"global_exclusion_of_adverse_reactions\":\"\",\n        \"absence_of_information_statement\":\"\",\n        \"absence_of_information_protocol_last_updated\":\"\"\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/addmedicationstatement",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"addmedicationstatement"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:38:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"messahe\": \"Not Authorised, not a patient\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "Not An Admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n        \"patient_id\":\"2\",\n        \"medication_item\":\"atenolol 100mg\",\n\t\t\"medication_name\":\"cefuroxim\",\n\t\t\"medication_form\":\"tablet\",\n        \"strength\":\"1\",\n        \"exact_timing_critical\":\"2\",\n\t\t\"medication_category\":\"ad-hoc mixture\",\n\t\t\"medication_strength_numerator\":9,\n\t\t\"medication_strength_numerator_unit\":\"mg\",\n\t\t\"medication_strength_denominator\":0.3,\n\t\t\"medication_strength_denominator_unit\":\"g\",\n\t\t\"unit_of_presentation\":\"capsule\",\n\t\t\"strength(concentration)\":\"10 mgml\",\n\t\t\"manufacturer\":\"abbott\",\n\t\t\"batch_id\":1,\n\t\t\"expiry\":\"2023-09-12\",\n\t\t\"amount\":\"1\",\n\t\t\"amount_unit\":\"mg\",\n\t\t\"alternate_amount\":\"5\",\n\t\t\"alternate_amount_unit\":\"ml\",\n\t\t\"role\":\"therapeutic\",\n\t\t\"description\":\"therapy related medication\",\n\n        \"dose_amount\":\"1\",\n\t\t\"dose_unit\":\"mg\",\n\t\t\"dose_formula\":\"12\",\n\t\t\"dose_description\":\"2 to 3 times a day\",\n\t\t\"dose_frequency_lower\":\"2\",\n\t\t\"dose_frequency_lower_rate\":\"1\",\n\t\t\"dose_frequency_higher\":\"3\",\n\t\t\"dose_frequency_higher_rate\":\"1\",\n\t\t\"dose_interval\":\"03:00\",\n\t\t\"dose_specific_time\":\"03:00\",\n\t\t\"dose_specific_time_lower\":\"10:00\",\n\t\t\"dose_specific_time_upper\":\"20:00\",\n\t\t\"dose_timing_description\":\"every day\",\n\t\t\"dose_exact_timing_critical\":\"FALSE\",\n\t\t\"as_required\":\"TRUE\",\n\t\t\"as_required_criterion\":\"for stress relieve\",\n\t\t\"dose_event_name\":\"after every meal\",\n\t\t\"dose_time_offset\":\"03:00\",\n\t\t\"dose_on\":\"03:00\",\n\t\t\"dose_off\":\"03:00\",\n\t\t\"dose_repetetions\":\"6\",\n\n        \"route\":\"oral\",\n\t\t\"body_site\":\"head\",\n\n        \"time_repetetion_interval\":\"1\",\n        \"time_frequency_lower\":\"2\",\n\t\t\"time_frequency_lower_rate\":\"1\",\n\t\t\"time_frequency_higher\":\"3\",\n\t\t\"time_frequency_higher_rate\":\"3\",\n\t\t\"time_specific_date\":\"2020-01-01\",\n\t\t\"time_specific_date_lower\":\"2020-01-01\",\n\t\t\"time_specific_date_upper\":\"2020-01-01\",\n\t\t\"time_specific_day_of_week\":\"1\",\n\t\t\"time_specific_day_of_month\":\"1\",\n\t\t\"time_event_time_offset\":\"01:00\",\n        \"timing_description\":\"every day\",\n\t\t\"time_event_name\":\"after meal\",\n\t\t\"timing_on\":\"03:00\",\n\t\t\"timing_off\":\"08:00\",\n\t\t\"timing_repetetions\":\"9\",\n\n        \"global_exclusion_of_adverse_reactions\":\"\",\n        \"absence_of_information_statement\":\"\",\n        \"absence_of_information_protocol_last_updated\":\"\"\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/addmedicationstatement",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"addmedicationstatement"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:40:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not Admin\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Medication Statement for patient",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+						"description": "Patient Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsforpatient",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"ips",
+						"medicationsummary",
+						"getallmedicationstatementsforpatient"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsforpatient",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getallmedicationstatementsforpatient"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:43:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"medication_summary\": {\n        \"absence_of_info_protocol_last_updated\": \"\",\n        \"absence_of_info_statement\": \"\",\n        \"global_exclusion_of_medication_use\": \"\",\n        \"medication_statements\": [\n            {\n                \"medication_item\": \"atenolol 100mg\",\n                \"order_id\": 2\n            }\n        ]\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "Not a Patient",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4ifQ.6ElIjKH9gMagZRYal0aCd3l3q5vCf1y8hBM03ldGT1w",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsforpatient",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getallmedicationstatementsforpatient"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:29:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not a patient\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "GEt All Medication statement for Doctor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+						"description": "Doctor Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsfordoctor/2",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"ips",
+						"medicationsummary",
+						"getallmedicationstatementsfordoctor",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsfordoctor/2",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getallmedicationstatementsfordoctor",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:50:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"medication_summary\": {\n        \"absence_of_info_protocol_last_updated\": \"\",\n        \"absence_of_info_statement\": \"\",\n        \"global_exclusion_of_medication_use\": \"\",\n        \"medication_statements\": [\n            {\n                \"medication_item\": \"atenolol 100mg\",\n                \"order_id\": 2\n            }\n        ]\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "Invalid Patient Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsfordoctor/3",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getallmedicationstatementsfordoctor",
+								"3"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:51:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not a patient\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "Not A Doctor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getallmedicationstatementsfordoctor/2",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getallmedicationstatementsfordoctor",
+								"2"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:52:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not a doctor\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get medication statement by  id for patient",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+						"description": "Patient Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getmedicationstatementforpatient/2",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"ips",
+						"medicationsummary",
+						"getmedicationstatementforpatient",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getmedicationstatementforpatient/2",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getmedicationstatementforpatient",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:56:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"administration_details\": {\n            \"body_site\": \"head\",\n            \"route\": \"oral\"\n        },\n        \"dosage\": {\n            \"as_required\": \"TRUE\",\n            \"as_required_criterion\": \"for stress relieve\",\n            \"dose_amount\": \"1\",\n            \"dose_description\": \"2 to 3 times a day\",\n            \"dose_formula\": \"12\",\n            \"dose_unit\": \"mg\",\n            \"event_name\": \"after every meal\",\n            \"exact_timing_critical\": \"FALSE\",\n            \"frequency_higher\": \"3\",\n            \"frequency_higher_rate\": \"1\",\n            \"frequency_lower\": \"2\",\n            \"frequency_lower_rate\": \"1\",\n            \"interval\": \"03:00\",\n            \"off\": \"03:00\",\n            \"on\": \"03:00\",\n            \"repetetions\": \"6\",\n            \"specific_time\": \"03:00\",\n            \"specific_time_lower\": \"10:00\",\n            \"specific_time_upper\": \"20:00\",\n            \"time_offset\": \"03:00\",\n            \"timing_description\": \"every day\"\n        },\n        \"medication\": {\n            \"alternate_amount\": \"5\",\n            \"alternate_amount_unit\": \"ml\",\n            \"amount\": \"1\",\n            \"amount_unit\": \"mg\",\n            \"batch_id\": \"1\",\n            \"description\": \"therapy related medication\",\n            \"expiry\": \"2023-09-12\",\n            \"manufacturer\": \"abbott\",\n            \"medication_category\": \"ad-hoc mixture\",\n            \"medication_form\": \"tablet\",\n            \"medication_item\": \"atenolol 100mg\",\n            \"medication_name\": \"cefuroxim\",\n            \"medication_strength_denominator\": \"0.3\",\n            \"medication_strength_denominator_unit\": \"g\",\n            \"medication_strength_numerator\": \"9\",\n            \"medication_strength_numerator_unit\": \"mg\",\n            \"role\": \"therapeutic\",\n            \"strength\": \"1\",\n            \"strength(concentration)\": \"10 mgml\",\n            \"unit_of_presentation\": \"capsule\"\n        },\n        \"medication_statement\": {\n            \"order_id\": 2,\n            \"patient_id\": 2\n        },\n        \"timing_non-daily\": {\n            \"event_name\": \"after meal\",\n            \"event_time_offset\": \"01:00\",\n            \"frequency_higher\": \"3\",\n            \"frequency_higher_rate\": \"3\",\n            \"frequency_lower\": \"2\",\n            \"frequency_lower_rate\": \"1\",\n            \"off\": \"08:00\",\n            \"on\": \"03:00\",\n            \"repetetion_interval\": \"1\",\n            \"repetetions\": \"9\",\n            \"specific_date\": \"2020-01-01\",\n            \"specific_date_lower\": \"2020-01-01\",\n            \"specific_date_upper\": \"2020-01-01\",\n            \"specific_day_of_month\": \"1\",\n            \"specific_day_of_week\": \"1\",\n            \"timing_description\": \"every day\"\n        }\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "Other Patients medication statement",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getmedicationstatementforpatient/1",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getmedicationstatementforpatient",
+								"1"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 12:56:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"not authorised\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getAllPrescriptionsForPatient",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getAllPrescriptionsForPatient"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:09:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"allPrescriptions\": [\n        {\n            \"date_written\": \"21/01/2022 13:05:11\",\n            \"doctorName\": \" Dr.vishal\",\n            \"prescriptionId\": 1\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Get medication statement by id for doctor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+						"description": "Doctor Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getmedicationstatementfordoctor/1",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"ips",
+						"medicationsummary",
+						"getmedicationstatementfordoctor",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getmedicationstatementfordoctor/1",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getmedicationstatementfordoctor",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:00:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"administration_details\": {\n            \"body_site\": \"head\",\n            \"route\": \"oral\"\n        },\n        \"dosage\": {\n            \"as_required\": \"TRUE\",\n            \"as_required_criterion\": \"for stress relieve\",\n            \"dose_amount\": \"1\",\n            \"dose_description\": \"2 to 3 times a day\",\n            \"dose_formula\": \"12\",\n            \"dose_unit\": \"mg\",\n            \"event_name\": \"after every meal\",\n            \"exact_timing_critical\": \"FALSE\",\n            \"frequency_higher\": \"3\",\n            \"frequency_higher_rate\": \"1\",\n            \"frequency_lower\": \"2\",\n            \"frequency_lower_rate\": \"1\",\n            \"interval\": \"03:00\",\n            \"off\": \"03:00\",\n            \"on\": \"03:00\",\n            \"repetetions\": \"6\",\n            \"specific_time\": \"03:00\",\n            \"specific_time_lower\": \"10:00\",\n            \"specific_time_upper\": \"20:00\",\n            \"time_offset\": \"03:00\",\n            \"timing_description\": \"every day\"\n        },\n        \"medication\": {\n            \"alternate_amount\": \"5\",\n            \"alternate_amount_unit\": \"ml\",\n            \"amount\": \"1\",\n            \"amount_unit\": \"mg\",\n            \"batch_id\": \"1\",\n            \"description\": \"therapy related medication\",\n            \"expiry\": \"2023-09-12\",\n            \"manufacturer\": \"abbott\",\n            \"medication_category\": \"ad-hoc mixture\",\n            \"medication_form\": \"tablet\",\n            \"medication_item\": \"atenolol 100mg\",\n            \"medication_name\": \"cefuroxim\",\n            \"medication_strength_denominator\": \"0.3\",\n            \"medication_strength_denominator_unit\": \"g\",\n            \"medication_strength_numerator\": \"9\",\n            \"medication_strength_numerator_unit\": \"mg\",\n            \"role\": \"therapeutic\",\n            \"strength\": \"1\",\n            \"strength(concentration)\": \"10 mgml\",\n            \"unit_of_presentation\": \"capsule\"\n        },\n        \"medication_statement\": {\n            \"order_id\": 1,\n            \"patient_id\": 1\n        },\n        \"timing_non-daily\": {\n            \"event_name\": \"after meal\",\n            \"event_time_offset\": \"01:00\",\n            \"frequency_higher\": \"3\",\n            \"frequency_higher_rate\": \"3\",\n            \"frequency_lower\": \"2\",\n            \"frequency_lower_rate\": \"1\",\n            \"off\": \"08:00\",\n            \"on\": \"03:00\",\n            \"repetetion_interval\": \"1\",\n            \"repetetions\": \"9\",\n            \"specific_date\": \"2020-01-01\",\n            \"specific_date_lower\": \"2020-01-01\",\n            \"specific_date_upper\": \"2020-01-01\",\n            \"specific_day_of_month\": \"1\",\n            \"specific_day_of_week\": \"1\",\n            \"timing_description\": \"every day\"\n        }\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "Invalid Order Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/ips/medicationsummary/getmedicationstatementfordoctor/3",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ips",
+								"medicationsummary",
+								"getmedicationstatementfordoctor",
+								"3"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:01:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid Order id\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Prescription",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+						"description": "Doctor Token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\"patient_id\" : 2,\n\"medOrders\" :[\n\t{\n\t\t\"medicationItem\" : \"doct2\",\n\t\t\"route\" : \"qwe\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t},\n\t\t{\n\t\t\"medicationItem\" : \"doc2.0\",\n\t\t\"route\" : \"sad\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/addPrescription",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"addPrescription"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\"patient_id\" : 2,\n\"medOrders\" :[\n\t{\n\t\t\"medicationItem\" : \"doct2\",\n\t\t\"route\" : \"qwe\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t},\n\t\t{\n\t\t\"medicationItem\" : \"doc2.0\",\n\t\t\"route\" : \"sad\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/addPrescription",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"addPrescription"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:05:11 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Prescription Created Successfully\",\n    \"success\": true\n}"
+				},
+				{
+					"name": "Invalid Patient Id",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\"patient_id\" : 3,\n\"medOrders\" :[\n\t{\n\t\t\"medicationItem\" : \"doct2\",\n\t\t\"route\" : \"qwe\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t},\n\t\t{\n\t\t\"medicationItem\" : \"doc2.0\",\n\t\t\"route\" : \"sad\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/addPrescription",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"addPrescription"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:05:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not a patient\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "Not a Doctor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\"patient_id\" : 3,\n\"medOrders\" :[\n\t{\n\t\t\"medicationItem\" : \"doct2\",\n\t\t\"route\" : \"qwe\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t},\n\t\t{\n\t\t\"medicationItem\" : \"doc2.0\",\n\t\t\"route\" : \"sad\",\n\t\t\"dosageInstruction\":\"asdf\",\n\t\t\"maximumAmount\" : 2,\n\t\t\"maximumAmountDoseUnit\":\"wedfrgh\",\n\t\t\"allowedPeriod\" : \"qwwd\",\n\t\t\"overrideReason\" : \"nubhhjb\",\n\t\t\"additionalInstructions\" :\"tyfgfv\",\n\t\t\"reasons\" : \"bhj\",\n\t\t\"status\" : \"done\",\n\t\t\"dateDiscontinued\":\"2021-11-01\",\n\t\t\"dateWritten\" : \"2022-11-01\",\n\t\t\"numOfRepeatsAllowed\":5,\n\t\t\"validityPeriod\" :\"2022-2-04\",\n\t\t\"dispenseInstrution\":\"hubhb\",\n\t\t\"dispenseAmountDescription\" :\"innds\",\n\t\t\"dispenseAmount\" : 21,\n\t\t\"dispenseAmountUnit\" : 90,\n\t\t\"comment\" : \"uheds\",\n\t\t\"dose_unit\" : 3,\n\t\t\"dose_frequency\" : \"twice\",\n\t\t\"dose_timing\" : \"2022-11-01\",\n\t\t\"dose_duration\" : \"tomowwo\",\n\t\t\"repetition_interval\" : \"5 mins\",\n\t\t\"Specific_date\" : \"21-11-2021\",\n\t\t\"specific_day_of_week\" : \"monday\",\n\t\t\"Specific_day_of_month\" :\"jan\",\n\t\t\"specific_Event\" :\"tom\",\n\t\t\"substance_name\" :\"omnws\",\n\t\t\"form\" :\"okds\",\n\t\t\"strength\" :10,\n\t\t\"strengthUnit\" : \"oksjn\",\n\t\t\"diluentAmount\" : 10,\n\t\t\"diluentunit\" : \"100mg\",\n\t\t\"description\" : \"idjsd\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/addPrescription",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"addPrescription"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:07:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not a doctor\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All prescription",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+						"description": "Patient Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getAllPrescriptionsForPatient",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"getAllPrescriptionsForPatient"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Not a Patient",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZpc2hhbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.q9r1-d27sztyzf_53SxAOJzQOVKRe5Fsz-CqOhlKEug",
+								"description": "Doctor Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getAllPrescriptionsForPatient",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getAllPrescriptionsForPatient"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:10:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised, not a patient\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Prescription By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+						"description": "Patient Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPrescriptionByIdForPatient/1",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"getPrescriptionByIdForPatient",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPrescriptionByIdForPatient/1",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getPrescriptionByIdForPatient",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:12:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Prescription\": [\n        {\n            \"date_written\": \"21/01/2022 13:05:11\",\n            \"medId\": 1,\n            \"medicationItem\": \"doct2\",\n            \"patient_id\": 2\n        },\n        {\n            \"date_written\": \"21/01/2022 13:05:11\",\n            \"medId\": 2,\n            \"medicationItem\": \"doc2.0\",\n            \"patient_id\": 2\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "Other Patient Prescription",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getPrescriptionByIdForPatient/3",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getPrescriptionByIdForPatient",
+								"3"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:12:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Authorised\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "get medication order by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+						"description": "Patient Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getMedicationOrderByIdForPatient/2",
+					"protocol": "http",
+					"host": [
+						"testflaskapp-env",
+						"eba-xdrnw66m",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"getMedicationOrderByIdForPatient",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getMedicationOrderByIdForPatient/2",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getMedicationOrderByIdForPatient",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:38:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Specific_date\": \"21-11-2021\",\n    \"Specific_day_of_month\": \"jan\",\n    \"additionalInstructions\": \"tyfgfv\",\n    \"allowedPeriod\": \"qwwd\",\n    \"comment\": \"uheds\",\n    \"dateDiscontinued\": \"2021-11-01\",\n    \"dateWritten\": \"21/01/2022 13:05:11\",\n    \"description\": \"idjsd\",\n    \"diluentAmount\": \"10\",\n    \"diluentunit\": \"100mg\",\n    \"dispenseAmount\": \"21\",\n    \"dispenseAmountDescription\": \"innds\",\n    \"dispenseAmountUnit\": \"90\",\n    \"dispenseInstrution\": \"hubhb\",\n    \"dosageInstruction\": \"asdf\",\n    \"dose_duration\": \"tomowwo\",\n    \"dose_frequency\": \"twice\",\n    \"dose_timing\": \"2022-11-01\",\n    \"dose_unit\": \"3\",\n    \"form\": \"okds\",\n    \"maximumAmount\": \"2\",\n    \"maximumAmountDoseUnit\": \"wedfrgh\",\n    \"medicationItem\": \"doc2.0\",\n    \"numOfRepeatsAllowed\": \"5\",\n    \"overrideReason\": \"nubhhjb\",\n    \"reasons\": \"bhj\",\n    \"repetition_interval\": \"5 mins\",\n    \"route\": \"sad\",\n    \"specific_Event\": \"tom\",\n    \"specific_day_of_week\": \"monday\",\n    \"status\": \"done\",\n    \"strength\": \"10\",\n    \"strengthUnit\": \"oksjn\",\n    \"substance_name\": \"omnws\",\n    \"validityPeriod\": \"2022-2-04\"\n}"
+				},
+				{
+					"name": "Invalid med id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZlZGlrYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjgxZGM5YmRiNTJkMDRkYzIwMDM2ZGJkODMxM2VkMDU1In0.IUOjsNIUE1qyAuWJsok2VdHyQ-NoxcI1dmqUstrfYx4",
+								"description": "Patient Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://testflaskapp-env.eba-xdrnw66m.us-east-2.elasticbeanstalk.com/api/getMedicationOrderByIdForPatient/3",
+							"protocol": "http",
+							"host": [
+								"testflaskapp-env",
+								"eba-xdrnw66m",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"getMedicationOrderByIdForPatient",
+								"3"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Jan 2022 13:48:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.20.0"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid Med Id\",\n    \"success\": false\n}"
+				}
+			]
+		}
+	]
+}
