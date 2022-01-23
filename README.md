@@ -7,41 +7,48 @@ A web application for creating, storing and fetching the detailed medical record
 
 Clone the project
 
-bash
+```bash
     git clone https://github.com/Prashast-Bhatnagar/flask.git
-
+```
 
 Activate virtual environment
-bash
+```bash
     source venv/bin/activate
-
+```
 Install dependencies
 
-bash
+```bash
     pip install -r requirements.txt
-
+```
 set the SqlAlchemy_URI
-bash
-    set SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@db:5432/sample6"
+
+    set SQLALCHEMY_DATABASE_URI = "postgresql://{postgres_user}:{postgres_password}@{db_host_name}:{postgres_port}/{postgres_db}"
+
+Migrate Database
+```bash
+    flask db init
+    flask db migrate -m "message"
+    flask db upgrade
+```
 
 Run the Server
-bash
+```bash
     python ./app.py
-
+```
 
 # Deployment Steps
 
 Create your branch
-bash
+```bash
     git checkout -b "branch name"
-
+```
 
 Commit onto the branch
-bash
+```bash
     git add .
     git commit -m "message"
     git push -u origin "branch name"
-
+```
 Once the code got merge into the main the CI/CD pipeline will deploy the changes to AWS EBS. 
 
 
@@ -63,3 +70,8 @@ Once the code got merge into the main the CI/CD pipeline will deploy the changes
 ## DB Schema
 
 [click here](https://drive.google.com/file/d/1i_mw_l52nYpGqjA9DW-m3xpzpIrk4keM/view)
+
+
+## AWS Architecture
+![awsarch-Page-2 drawio (1)](https://user-images.githubusercontent.com/80159535/150690323-064916be-c21a-485a-986a-c4546a968b32.png)
+
