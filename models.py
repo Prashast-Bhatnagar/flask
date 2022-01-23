@@ -6,11 +6,11 @@ from flask_cors import CORS, cross_origin
 import os
 
 
-db_host_name = os.environ['db-host-name']
-postgres_db = os.environ['db-host-name']
-postgres_password = os.environ['db-host-name']
-postgres_port = os.environ['db-host-name']
-postgres_user = os.environ['db-host-name']
+db_host_name = os.environ['DB_HOST_NAME']
+postgres_db = os.environ['POSTGRES_DB']
+postgres_password = os.environ['POSTGRES_PASSWORD']
+postgres_port = os.environ['POSTGRES_PORT']
+postgres_user = os.environ['POSTGRES_USER']
 
 app = Flask(__name__)
 cors = CORS(app)
